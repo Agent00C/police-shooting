@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/main.css"/>
   </head>
@@ -32,31 +33,29 @@
       </div>
     </div>  
     <div class="container-fluid">
-      <div class="col-md-6" id="data" style="background-color:rgba(0, 0, 0, 0.5);">
-      <!--Show text about crime on hover-->
-        <div class="col-md-6">
-        <h1>Incident Data</h1>
-        <h2>Date</h2><!-- d-->
-        <h2>Location</h1> <!-- d.city + ", " + d.state -->
-        <h2>Agency</h2>
-
-        </div>
-        <div class="col-md-6">
-          <h1>Victim Data</h1>
-          <h2>Name</h2>
-          <h2>Age</h2>
-          <h2>Gender</h2>
-          <h2>Report</h2>
-        </div>
-      </div>
-      <div class="col-md-6" id="map" style="width:500px; height:500px;"></div>
+     <div class="col-md-6" id="map" style="width:500px; height:500px;"></div>
    
       <script>
       // This is where you should execute your drawMap function // 
-      drawMap();
-      getData();
-
+        drawMap();
+        getData();
       </script>
+      
+      <div class="col-md-6" id="data" style="background-color:rgba(0, 0, 0, 0.5);">
+      <!--Show text about crime on hover-->
+        <div class="col-md-12">
+          This map shows locations in the U.S. where police shootings have occurred.
+        <div class="col-md-6" id="chart_div" style="width:500px; height:500px;" style="background-color:rgba(0, 0, 0, 0.5);"></div>
+       <script type="text/javascript">
+        // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(customBuild);
+      customBuild();
+      </script>
+        </div>
+      </div>
     </div>
     <div id="page-footer">
       <footer>

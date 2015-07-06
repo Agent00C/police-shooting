@@ -8,7 +8,7 @@ body {
 	font-family: 'PT Sans', sans-serif;
 	font-size: 18px;
 	font-weight: 300;
-	color: #FFFFFF;
+	
 }
 
 #page-header {
@@ -23,7 +23,7 @@ body {
 #data {
 	color: #FFFFFF;
 	border-radius: 10px;
-	margin-right: 1em;
+	margin-left: 1em;
 	background-size: cover;
 }
 
@@ -47,9 +47,30 @@ body {
 	opacity:0.8;
 }
 
-#page-footer {
-	text-align: right;
-	padding:1em;
+#chart_div {
+	titleTextStyle {
+		color:#FFFFFF;
+	}
 }
-    
+
+#page-footer {
+	text-align: left;
+	padding:1em;
+	color:#FFFFFF;
+}
+
+/* unvisited link */
+a:link {
+    color: #FFFFFF;
+}
+
+/* mouse over link */
+a:hover {
+    color: #FF00FF;
+}
+
+/* selected link */
+a:active {
+    color: #0000FF;
+}   
 

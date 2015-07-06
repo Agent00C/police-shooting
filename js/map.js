@@ -17,27 +17,40 @@ var drawMap = function() {
 	
 	layer.addTo(map);*/
 
-}
+};
 
 // Function for getting data
+var numWhite=0;
+var numBlack=0;
+var numUnknown=0;
 var getData = function() {
 
   // Execute an AJAX request to get the data in data/response.js
-  var data;
+  
   $.ajax({
     url:'../police-shooting/data/response.json',
     type: "get",
     success:function(dat) {
        data = dat;
-
+	   var data;
        data.map(function(d){
-         var circle = new L.circle([d.lat, d.lng], 500, {
+         var circle = new L.circle([d.lat, d.lng], 1000, {
     		color: 'red',
     		fillColor: '#f03',
     		fillOpacity: 0.5
 		 }).addTo(map);
 
-		 circle.bindPopup(d.City + ", " + d.State);
+        if(d.Race =="White")  {
+        	numWhite++;
+        } 
+        if (d.Race=="Black or African American") {
+        	numBlack++;
+        } 
+        if (d.Race == "Unknown") {
+        	numUnknown++;
+        }
+
+		circle.bindPopup(d.City + ", " + d.State + ": " + d.Summary);
 
       });
 
@@ -47,10 +60,31 @@ var getData = function() {
 
   // When your request is successful, call your customBuild function
 
-}
+};
 
 // Do something creative with the data here!  
 var customBuild = function() {
+// Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Race');
+        data.addColumn('number', 'Number');
+        data.addRows([
+          ['White', numWhite],
+          ['Black or African American', numBlack],
+          ['Unknown', numUnknown]
+          
+        ]);
 
+        // Set chart options
+        var options = {'title':"Victim's Race",
+                       'width':450,
+                       'height':450,
+                       'backgroundColor':'black'
+
+                   		};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
   
-}
+};
