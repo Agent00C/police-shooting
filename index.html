@@ -14,15 +14,15 @@
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
     -->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/main.css"/>
   </head>
   <body>
-    <div class="container-fluid">
+   <div class="container-fluid"> 
       <div class="col-md-12" id="page-header"> 
         <h>Mapping U.S. Police Shootings</h>
       </div>
@@ -31,19 +31,17 @@
       </div>
     </div> 
     <div class="container-fluid" style="background-color:rgba(0, 0, 0, 0.2);">
-     <div class="col-md-6" id="map" style="width:500px; height:500px;" ></div>
+      <div class="col-md-6" id="map" style="width:500px; height:500px;" ></div>
       <script>
         drawMap();
         getData();
       </script>
-      <div class="col-md-6" id="data">
-       
-        <div class="col-md-6" id="chart_div" style="width:500px; height:500px;"></div>
-        <script type="text/javascript">
-          google.load('visualization', '1.0', {'packages':['corechart']});
-          google.setOnLoadCallback(customBuild);
-          customBuild();
-        </script>
+      <div class="col-md-6" id="chart_div" style="width:500px; height:500px;"></div>
+      <script type="text/javascript">
+        google.load('visualization', '1.0', {'packages':['corechart']});
+        google.setOnLoadCallback(customBuild);
+        customBuild();
+      </script>
       </div>
     </div>
     <div id="page-footer">

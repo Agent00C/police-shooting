@@ -2,13 +2,11 @@
 
 body {
 	background-image: url("http://penangmedia.com/wp-content/uploads/2015/05/white_background_wallpapers_08.jpg");
-	/*background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("http://erstarnews.com/wp-content/uploads/2013/02/police-lights4.jpg");*/
 	background-size: cover;
 	background-repeat: no-repeat;
 	font-family: 'PT Sans', sans-serif;
 	font-size: 18px;
-	font-weight: 300;
-	
+	font-weight: 300;	
 }
 
 #page-header {
@@ -39,8 +37,7 @@ body {
     width: 600px;
     margin-left: 1em;
     padding-left: 1em;
-    color: #000;
-   
+    color: #000;  
 }
 
 .leaflet-popup-content-wrapper, .leaflet-popup-tip {
@@ -59,19 +56,17 @@ body {
 	padding-top: 1em;
 	margin-left: 1em;
 	color:#000;
+	position:absolute;
 }
 
-/* unvisited link */
 a:link {
     color: #000;
 }
 
-/* mouse over link */
 a:hover {
     color: #FF00FF;
 }
 
-/* selected link */
 a:active {
     color: #0000FF;
 }   
