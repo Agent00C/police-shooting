@@ -1,3 +1,9 @@
+/* Joseph Topasna
+ * Instr: Mike Freeman
+ * INFO 343
+ * Polic-Shooting
+ * 06 July 15 */
+ 
 var map;
 var numWhite=0;
 var numBlack=0;
