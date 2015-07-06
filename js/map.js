@@ -27,25 +27,25 @@ var getData = function() {
 	   var data;
        data.map(function(d){
          var circle = new L.circle([d.lat, d.lng], 1000, {
-    		color: 'red',
-    		fillColor: '#f03',
-    		fillOpacity: 0.5
+    		color:'red',
+    		fillColor:'#f03',
+    		fillOpacity:0.5
 		 });
 
         if(d.Race =="White")  {
         	numWhite++;
-        	//circle { color:'red'}
         } 
         if (d.Race=="Black or African American") {
         	numBlack++;
-        	//circle {color:'blue'}
+        	circle.setStyle({color:'darkblue', fillColor:'blue'});
         } 
         if (d.Race == "Unknown") {
         	numUnknown++;
-        	//circle {color:'yellow'}
+        	circle.setStyle({color:'orange', fillColor:'yellow'});
         }
+
 		circle.addTo(map);
-		circle.bindPopup(d.City + ", " + d.State + ": " + d.Summary);
+		circle.bindPopup(d.City + ", " + d.State + ", Victim's Race: " + d.Race + ", " + d.Summary);
 
       });
 
@@ -61,18 +61,18 @@ var customBuild = function() {
         data.addRows([
           ['White', numWhite],
           ['Black or African American', numBlack],
-          ['Unknown', numUnknown]
+          ['Latino or Unknown', numUnknown]
           
         ]);
 
-        var options = {'title':"Victim's Race",
+        var options = {'title':"Race of Victims",
                        'width':600,
                        'height':600,
                        'chartArea.left':1,
                        'chartArea.right':1,
                        'chartArea.top':1,
                        'chartArea.bottom':1, 
-                       'backgroundColor': 'transparent',
+                       'backgroundColor':'transparent',
                        'titleTextStyle': {'fontSize':20}
         };
 
