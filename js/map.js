@@ -1,4 +1,7 @@
 var map;
+var numWhite=0;
+var numBlack=0;
+var numUnknown=0;
 
 var drawMap = function() {
 
@@ -11,21 +14,10 @@ var drawMap = function() {
     	accessToken: 'sk.eyJ1IjoianRvcGFzbmEiLCJhIjoiY2M3NjNkZDFkNjdmMmIxMDI1NWI5Y2VmZWMwZGM5MDMifQ.YQy8szTvotF29FCy6ZasBQ'
 	}).addTo(map);
 
-	/*var marker = L.marker([41.1456, -104.8019]).addTo(map); /* Cheyenne, WY */
-	/* SAVE!!! 
- 	layer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
-	
-	layer.addTo(map);*/
-
 };
 
-// Function for getting data
-var numWhite=0;
-var numBlack=0;
-var numUnknown=0;
-var getData = function() {
-
-  // Execute an AJAX request to get the data in data/response.js
+/* Gives Chrome access to local file data/response.json: "open /Applications/Google\ Chrome.app --args --allow-file-access-from-files" */
+var getData = function() {  
   
   $.ajax({
     url:'../police-shooting/data/response.json',
@@ -38,18 +30,21 @@ var getData = function() {
     		color: 'red',
     		fillColor: '#f03',
     		fillOpacity: 0.5
-		 }).addTo(map);
+		 });
 
         if(d.Race =="White")  {
         	numWhite++;
+        	//circle { color:'red'}
         } 
         if (d.Race=="Black or African American") {
         	numBlack++;
+        	//circle {color:'blue'}
         } 
         if (d.Race == "Unknown") {
         	numUnknown++;
+        	//circle {color:'yellow'}
         }
-
+		circle.addTo(map);
 		circle.bindPopup(d.City + ", " + d.State + ": " + d.Summary);
 
       });
@@ -57,14 +52,9 @@ var getData = function() {
     }, 
     dataType:"json"
   }); 
-
-  // When your request is successful, call your customBuild function
-
 };
-
-// Do something creative with the data here!  
+ 
 var customBuild = function() {
-// Create the data table.
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Race');
         data.addColumn('number', 'Number');
@@ -75,15 +65,17 @@ var customBuild = function() {
           
         ]);
 
-        // Set chart options
         var options = {'title':"Victim's Race",
-                       'width':450,
-                       'height':450,
-                       'backgroundColor':'black'
+                       'width':600,
+                       'height':600,
+                       'chartArea.left':1,
+                       'chartArea.right':1,
+                       'chartArea.top':1,
+                       'chartArea.bottom':1, 
+                       'backgroundColor': 'transparent',
+                       'titleTextStyle': {'fontSize':20}
+        };
 
-                   		};
-
-        // Instantiate and draw our chart, passing in some options.
         var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
         chart.draw(data, options);
   

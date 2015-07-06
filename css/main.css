@@ -1,8 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
 
 body {
-	/*background-image: url("http://erstarnews.com/wp-content/uploads/2013/02/police-lights4.jpg");*/
-	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("http://erstarnews.com/wp-content/uploads/2013/02/police-lights4.jpg");
+	background-image: url("http://penangmedia.com/wp-content/uploads/2015/05/white_background_wallpapers_08.jpg");
+	/*background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("http://erstarnews.com/wp-content/uploads/2013/02/police-lights4.jpg");*/
 	background-size: cover;
 	background-repeat: no-repeat;
 	font-family: 'PT Sans', sans-serif;
@@ -12,8 +12,7 @@ body {
 }
 
 #page-header {
-	color: #FFFFFF;
-	/*border: 1px solid #FFFFFF;*/
+	color: #000;
 	text-align: center;
 	font-size: 40px;
 	font-weight: 700;
@@ -21,7 +20,7 @@ body {
 }
 
 #data {
-	color: #FFFFFF;
+	color: #000;
 	border-radius: 10px;
 	margin-left: 1em;
 	background-size: cover;
@@ -29,7 +28,10 @@ body {
 
 .container-fluid {
 	padding-top:1em;
-	/*border:1px solid #FFFFFF;*/
+	border-radius:10px;
+	text-align: center;
+	margin-left:1em;
+	margin-right: 1em;
 }
 
 #map { 
@@ -37,31 +39,31 @@ body {
     width: 600px;
     margin-left: 1em;
     padding-left: 1em;
-    color: #FFFFFF;
+    color: #000;
    
 }
 
 .leaflet-popup-content-wrapper, .leaflet-popup-tip {
-	background-color: #000;
+	background-color: #FFFFFF;
 	box-shadow: 0 3px 14px rgba(0,0,0,0.4);
 	opacity:0.8;
 }
 
 #chart_div {
-	titleTextStyle {
-		color:#FFFFFF;
-	}
+	margin-left:1em;
+	margin-right:1em;
 }
 
 #page-footer {
 	text-align: left;
-	padding:1em;
-	color:#FFFFFF;
+	padding-top: 1em;
+	margin-left: 1em;
+	color:#000;
 }
 
 /* unvisited link */
 a:link {
-    color: #FFFFFF;
+    color: #000;
 }
 
 /* mouse over link */
